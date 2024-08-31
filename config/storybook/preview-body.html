@@ -1,0 +1,26 @@
+<body id="app" class="app light">
+    <button id='switch-theme'>Change Theme</button>
+    <hr/>
+</body>
+
+<script>
+    const element = document.getElementById('switch-theme');
+
+    const darkTheme = 'dark';
+    const lightTheme = 'light';
+    let currentTheme = lightTheme;
+
+    function myFunction() {
+        if (currentTheme === lightTheme) {
+            document.body.classList.add(darkTheme);
+            currentTheme = darkTheme;
+        } else {
+            document.body.classList.remove(darkTheme);
+            currentTheme = lightTheme;
+        }
+    }
+
+    if (element) {
+        element.addEventListener('click', myFunction);
+    }
+</script>

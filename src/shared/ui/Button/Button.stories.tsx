@@ -1,8 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import 'app/styles/index.scss';
 
 import { Button, ThemeButton } from './Button';
+
+import 'app/styles/index.scss';
 
 export default {
   title: 'shared/Button',
