@@ -4,6 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
+  // eslint-disable-next-line max-len
   extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended', 'plugin:storybook/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
