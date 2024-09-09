@@ -4,8 +4,11 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  // eslint-disable-next-line max-len
-  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended', 'plugin:storybook/recommended'],
+  extends:
+      ['plugin:react/recommended',
+        'airbnb', 'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+        'plugin:storybook/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -14,7 +17,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [2,
@@ -36,6 +39,11 @@ module.exports = {
     }],
     'import/order': 'off',
     'max-len': ['error', { ignoreComments: true, code: 100 }],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'react/no-unused-prop-types': 'warn',
   },
   globals: {
     DEV: true,
