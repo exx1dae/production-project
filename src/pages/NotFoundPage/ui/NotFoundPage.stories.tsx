@@ -1,18 +1,18 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { NotFoundPage } from 'pages/NotFoundPage';
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { NotFoundPage } from "pages/NotFoundPage";
 
 export default {
-  title: 'pages/NotFoundPage',
+  title: "pages/NotFoundPage",
   component: NotFoundPage,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
 } as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;
+const Template: ComponentStory<typeof NotFoundPage> = (args) => (
+  <NotFoundPage {...args} />
+);
 
 export const Primary = Template.bind({});
-Primary.args = {
-
-};
+Primary.args = {};

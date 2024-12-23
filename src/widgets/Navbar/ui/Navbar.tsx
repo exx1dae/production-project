@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Navbar.module.scss';
-import { Modal } from 'shared/ui/Modal/Modal';
-import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useCallback, useState } from 'react';
+import { classNames } from "shared/lib/classNames/classNames";
+import cls from "./Navbar.module.scss";
+import { Modal } from "shared/ui/Modal/Modal";
+import { useTranslation } from "react-i18next";
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { useCallback, useState } from "react";
 
 interface NavbarProps {
   className?: string;
@@ -24,15 +24,13 @@ export const Navbar = ({ className }: NavbarProps) => {
         className={cls.links}
         onClick={onToggleModal}
       >
-        {t('Войти')}
+        {t("Войти")}
       </Button>
       {/* eslint-disable-next-line i18next/no-literal-string */}
       <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-        Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit.
-        Aliquid, culpa debitis exercitationem
-        facere fuga illum ipsam itaque iusto magni molestias
-        necessitatibus non officia perspiciatis quam quas qui,
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, culpa
+        debitis exercitationem facere fuga illum ipsam itaque iusto magni
+        molestias necessitatibus non officia perspiciatis quam quas qui,
         repudiandae voluptatem? Ipsa.
       </Modal>
     </div>

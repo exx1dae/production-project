@@ -1,15 +1,15 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Button, ButtonSize, ButtonTheme } from './Button';
+import { Button, ButtonSize, ButtonTheme } from "./Button";
 
-import 'app/styles/index.scss';
+import "app/styles/index.scss";
 
 export default {
-  title: 'shared/Button',
+  title: "shared/Button",
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: { control: "color" },
   },
 } as ComponentMeta<typeof Button>;
 
@@ -17,51 +17,51 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'Text',
+  children: "Text",
 };
 
 export const Clear = Template.bind({});
 Clear.args = {
-  children: 'Text',
+  children: "Text",
   theme: ButtonTheme.CLEAR,
 };
 
 export const Outline = Template.bind({});
 Outline.args = {
-  children: 'Text',
+  children: "Text",
   theme: ButtonTheme.OUTLINE,
 };
 
 export const OutlineSizeL = Template.bind({});
 OutlineSizeL.args = {
-  children: 'Text',
+  children: "Text",
   theme: ButtonTheme.OUTLINE,
   size: ButtonSize.L,
 };
 
 export const OutlineSizeXL = Template.bind({});
 OutlineSizeXL.args = {
-  children: 'Text',
+  children: "Text",
   theme: ButtonTheme.OUTLINE,
   size: ButtonSize.XL,
 };
 
 export const Background = Template.bind({});
 Background.args = {
-  children: 'Text',
+  children: "Text",
   theme: ButtonTheme.BACKGROUND,
 };
 
 export const Square = Template.bind({});
 Square.args = {
-  children: '>',
+  children: ">",
   theme: ButtonTheme.BACKGROUND,
   square: true,
 };
 
 export const SquareSizeM = Template.bind({});
 SquareSizeM.args = {
-  children: '>',
+  children: ">",
   theme: ButtonTheme.BACKGROUND,
   square: true,
   size: ButtonSize.M,
@@ -69,7 +69,7 @@ SquareSizeM.args = {
 
 export const SquareSizeL = Template.bind({});
 SquareSizeL.args = {
-  children: '>',
+  children: ">",
   theme: ButtonTheme.BACKGROUND,
   square: true,
   size: ButtonSize.L,
@@ -77,7 +77,7 @@ SquareSizeL.args = {
 
 export const SquareSizeXL = Template.bind({});
 SquareSizeXL.args = {
-  children: '>',
+  children: ">",
   theme: ButtonTheme.BACKGROUND,
   square: true,
   size: ButtonSize.XL,
