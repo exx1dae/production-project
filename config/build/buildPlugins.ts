@@ -1,9 +1,9 @@
-import HTMLWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import webpack from 'webpack';
-import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import { BuildOptions } from './types/config';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import HTMLWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import webpack from "webpack";
+import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import { BuildOptions } from "./types/config";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 export const buildPlugins = ({
   paths,
@@ -15,13 +15,12 @@ export const buildPlugins = ({
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
+      filename: "css/[name].[contenthash:8].css",
+      chunkFilename: "css/[name].[contenthash:8].css",
     }),
     new webpack.DefinePlugin({
       DEV: JSON.stringify(isDev),
     }),
-
   ];
 
   if (isDev) {

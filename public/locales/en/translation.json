@@ -10,5 +10,7 @@
   "throw Error": "throw Error",
   "Главная": "Main",
   "О сайте": "About us",
-  "Войти": "Войти"
+  "Войти": "Войти",
+  "Increment": "Increment",
+  "Decrement": "Decrement"
 }
