@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { Button, ButtonSize, ButtonTheme } from "./Button";
 
@@ -81,4 +81,11 @@ SquareSizeXL.args = {
   theme: ButtonTheme.BACKGROUND,
   square: true,
   size: ButtonSize.XL,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: "Some text...",
+  theme: ButtonTheme.OUTLINE,
+  disabled: true,
 };

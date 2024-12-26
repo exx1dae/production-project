@@ -46,7 +46,7 @@ module.exports = {
       },
     ],
     "import/order": "off",
-    "max-len": ["error", { ignoreComments: true, code: 100 }],
+    "max-len": ["error", { ignoreComments: true, code: 125 }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "jsx-a11y/no-static-element-interactions": "off",

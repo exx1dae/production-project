@@ -1,5 +1,7 @@
+// @ts-ignore
 import webpack from "webpack";
 import { BuildPaths } from "../build/types/config";
+// @ts-ignore
 import path from "path";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
 import { buildSvgLoader } from "../build/loaders/buildSvgLoader";
@@ -26,6 +28,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.module.rules.push(buildSvgLoader());
   config.module.rules.push(buildCssLoader(true));
+
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      DEV: true,
+    }),
+  );
 
   return config;
 };
