@@ -24,8 +24,8 @@ export const buildPlugins = ({
   ];
 
   if (isDev) {
-    plugins.push(new ReactRefreshPlugin());
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    plugins.push(new ReactRefreshPlugin());
   }
 
   return plugins;
