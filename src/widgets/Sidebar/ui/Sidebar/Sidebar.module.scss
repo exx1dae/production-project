@@ -29,32 +29,11 @@
   align-items: start;
 }
 
-.item {
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-  text-decoration: none;
-}
-
-.link {
-  opacity: 1;
-}
-
-.icon {
-  height: 20px;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
   .switchers {
     flex-direction: column;
-  }
-
-  .link {
-    opacity: 0;
-    width: 0;
-    transition: opacity 0.1s ease-in-out;
   }
 
   .item {

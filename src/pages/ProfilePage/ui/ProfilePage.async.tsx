@@ -1,13 +1,13 @@
 import { lazy } from "react";
 
-export const MainPageAsync = lazy(
+export const ProfilePageAsync = lazy(
   () =>
     new Promise((resolve) => {
       setTimeout(
         () =>
           // @ts-ignore
           // eslint-disable-next-line implicit-arrow-linebreak
-          resolve(import("./MainPage")),
+          resolve(import("./ProfilePage")),
         1000,
       );
     }),
