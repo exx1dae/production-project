@@ -1,5 +1,6 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames, Mods } from "shared/lib/classNames/classNames";
 import React, {
+  MutableRefObject,
   ReactNode,
   useCallback,
   useEffect,
@@ -23,13 +24,13 @@ const ANIMATION_DELAY: number = 300;
 export const Modal = (props: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   const { theme } = useTheme();
 
   const { children, className, isOpen, onClose, lazy } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };
@@ -82,7 +83,7 @@ export const Modal = (props: ModalProps) => {
   }
 
   return (
-    <Portal element={document.querySelector("#root")}>
+    <Portal element={document.querySelector("#root") as HTMLElement}>
       <div className={classNames(cls.Modal, mods, [className])}>
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>

@@ -1,11 +1,6 @@
-import axios from "axios";
 import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername/loginByUsername";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { userActions } from "entities/User";
-
-jest.mock("axios");
-
-const mockedAxios = jest.mocked(axios, true);
 
 describe("loginByUsername.test", () => {
   // let dispatch: Dispatch;
@@ -55,15 +50,15 @@ describe("loginByUsername.test", () => {
 
   test("should be successful request", async () => {
     const authData = {
-      username: "123",
+      username: "sarkis",
       id: "1",
     };
 
-    mockedAxios.post.mockReturnValue(Promise.resolve({ data: authData }));
-
     const thunk = new TestAsyncThunk(loginByUsername);
+    thunk.api.post.mockReturnValue(Promise.resolve({ data: authData }));
+
     const result = await thunk.callThunk({
-      username: "123",
+      username: "sarkis",
       password: "123",
     });
 
@@ -76,11 +71,10 @@ describe("loginByUsername.test", () => {
   });
 
   test("should be bad request", async () => {
-    mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
-
     const thunk = new TestAsyncThunk(loginByUsername);
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk({
-      username: "123",
+      username: "sarkis",
       password: "123",
     });
 

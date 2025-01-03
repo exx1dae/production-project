@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import MainPage from "./MainPage";
 
 export default {
@@ -10,9 +10,7 @@ export default {
   },
 } as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => (
-  <MainPage {...args} />
-);
+const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

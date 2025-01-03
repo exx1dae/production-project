@@ -7,6 +7,7 @@ declare module "*.scss" {
 }
 
 declare const DEV: boolean;
+declare const __API__: string;
 
 declare module "*.svg" {
   import React from "react";
@@ -17,3 +18,9 @@ declare module "*.svg" {
 declare module "*.png";
 declare module "*.jpeg";
 declare module "*.jpg";
+
+declare type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;
