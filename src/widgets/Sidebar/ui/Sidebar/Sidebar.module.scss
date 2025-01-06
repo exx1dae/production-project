@@ -5,6 +5,7 @@
   text-align: center;
   position: relative;
   transition: width .3s;
+  z-index: var(--sidebar-z-index);
 }
 
 .switchers {
