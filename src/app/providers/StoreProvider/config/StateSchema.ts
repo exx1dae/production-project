@@ -13,15 +13,17 @@ import { ArticleDetailsSchema } from "entities/Article";
 import { CounterSchema } from "entities/Counter";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUsername";
+import { ArticleCommentsSchema } from "features/ArticleCommentList";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
 
-  // Async reducers
+  // Async
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
+  articleComments?: ArticleCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
