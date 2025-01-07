@@ -8,7 +8,7 @@ import { Currency } from "entities/Currency";
 import avatar from "shared/assets/tests/Avatar.jpg";
 
 export default {
-  title: "shared/ProfileCard",
+  title: "entities/ProfileCard",
   component: ProfileCard,
   argTypes: {
     backgroundColor: { control: "color" },

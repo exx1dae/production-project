@@ -46,5 +46,5 @@ export const articleCommentListSlice = createSlice({
   },
 });
 
-export const { actions: articleCommentListActions } = articleCommentListSlice;
-export const { reducer: articleCommentListReducer } = articleCommentListSlice;
+export const { actions: articleCommentActions } = articleCommentListSlice;
+export const { reducer: articleCommentsReducer } = articleCommentListSlice;

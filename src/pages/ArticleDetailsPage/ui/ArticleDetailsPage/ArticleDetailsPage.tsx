@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleDetailsPage.module.scss";
 import { useTranslation } from "react-i18next";
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { ArticleDetails } from "entities/Article";
 import { useParams } from "react-router-dom";
 import { CommentList } from "entities/Comment";
@@ -13,20 +13,22 @@ import {
 
 import { useSelector } from "react-redux";
 import {
-  articleCommentListReducer,
+  articleCommentsReducer,
   fetchCommentsByArticleId,
   getArticleComments,
   getArticleCommentsIsLoading,
 } from "features/ArticleCommentList";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { AddCommentForm } from "features/AddNewComment";
+import { addCommentForArticle } from "../../model/addCommentForArticle/addCommentForArticle";
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
 const reducers: ReducersList = {
-  articleComments: articleCommentListReducer,
+  articleComments: articleCommentsReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
@@ -40,6 +42,13 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
+
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch],
+  );
 
   if (!id && __PROJECT__ !== "storybook") {
     return (
@@ -58,6 +67,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           align={TextAlign.CENTER}
           className={cls.commentTitle}
         />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList comments={comments} isLoading={commentsIsLoading} />
       </div>
     </DynamicModuleLoader>

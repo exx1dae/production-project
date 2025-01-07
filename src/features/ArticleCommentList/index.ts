@@ -7,7 +7,7 @@ export {
 
 export {
   getArticleComments,
-  articleCommentListReducer,
+  articleCommentsReducer,
 } from "./model/slice/articleCommentListSlice";
 
 export { fetchCommentsByArticleId } from "./model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";

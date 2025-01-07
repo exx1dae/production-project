@@ -23,6 +23,7 @@ import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
+import { useParams } from "react-router-dom";
 
 interface ProfilePageProps {
   className?: string;
@@ -35,6 +36,7 @@ const reducers: ReducersList = {
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t } = useTranslation("profile");
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
 
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
@@ -51,8 +53,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   };
 
   useEffect(() => {
-    if (__PROJECT__ !== "storybook") dispatch(fetchProfileData());
-  }, [dispatch]);
+    if (__PROJECT__ !== "storybook") dispatch(fetchProfileData(id));
+  }, [dispatch, id]);
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
@@ -109,6 +111,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     },
     [dispatch],
   );
+
+  if (!id) {
+    return (
+      <div className={classNames("", {}, [className])}>
+        {t("Данного пользователя не существует")}
+      </div>
+    );
+  }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

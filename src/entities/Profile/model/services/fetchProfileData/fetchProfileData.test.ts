@@ -13,12 +13,14 @@ const data = {
   city: "Zhukovsky",
 };
 
+const id = "1";
+
 describe("fetchProfileData.test", () => {
   test("should be successful request", async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(id);
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("fulfilled");
@@ -28,7 +30,7 @@ describe("fetchProfileData.test", () => {
   test("should be bad request", async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(id);
 
     expect(result.meta.requestStatus).toBe("rejected");
     expect(result.payload).toBe("error");

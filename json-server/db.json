@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sadad",
+      "id": "DEi_IXu"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Привет",
+      "id": "tAPxKz5"
     }
   ],
   "users": [
@@ -109,16 +123,37 @@
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://placehold.co/128x128/orange/white"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "role": "USER",
+      "avatar": "https://placehold.co/128x128/black/white"
     }
   ],
-  "profile": {
-    "name": "Sarkis",
-    "lastname": "Shainyan",
-    "age": 21,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Zhukovsky",
-    "username": "admin",
-    "avatar": "https://placehold.co/128x128"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "name": "Sarkis",
+      "lastname": "Shainyan",
+      "age": 21,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Zhukovsky",
+      "username": "sarkis",
+      "avatar": "https://placehold.co/128x128"
+    },
+    {
+      "id": "2",
+      "name": "John",
+      "lastname": "Doe",
+      "age": 40,
+      "currency": "USD",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "user",
+      "avatar": "https://placehold.co/128x128"
+    }
+  ]
 }
