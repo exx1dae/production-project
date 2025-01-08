@@ -3,7 +3,7 @@ import cls from "./ArticleDetailsPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
 import { ArticleDetails } from "entities/Article";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CommentList } from "entities/Comment";
 import { Text, TextAlign } from "shared/ui/Text/Text";
 import {
@@ -22,6 +22,8 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { AddCommentForm } from "features/AddNewComment";
 import { addCommentForArticle } from "../../model/addCommentForArticle/addCommentForArticle";
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -35,6 +37,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation("article");
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
@@ -50,6 +53,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     [dispatch],
   );
 
+  const onBackClick = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
+
   if (!id && __PROJECT__ !== "storybook") {
     return (
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -61,6 +68,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <Button onClick={onBackClick} theme={ButtonTheme.OUTLINE}>
+          {t("Назад к списку")}
+        </Button>
         <ArticleDetails id={id || "1"} />
         <Text
           title={t("Комментарии")}

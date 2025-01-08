@@ -1,0 +1,11 @@
+.ArticleList.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 16px;
+}
+
+.ArticleList.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}

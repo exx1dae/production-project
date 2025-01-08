@@ -1,24 +1,24 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import ArticleDetailsPage from "./ArticleDetailsPage";
-import StoreDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
-import { Article } from "entities/Article";
+import { ArticleList } from "./ArticleList";
 import {
+  Article,
   ArticleBlockType,
   ArticleType,
-} from "entities/Article/model/types/article";
+  ArticleView,
+} from "../../model/types/article";
 
 export default {
-  title: "pages/ArticleDetailsPage",
-  component: ArticleDetailsPage,
+  title: "entities/Article/ArticleList",
+  component: ArticleList,
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof ArticleDetailsPage>;
+} as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
-  <ArticleDetailsPage {...args} />
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+  <ArticleList {...args} />
 );
 
 const article: Article = {
@@ -73,12 +73,36 @@ const article: Article = {
   ],
 };
 
-export const Primary = Template.bind({});
-Primary.args = {};
-Primary.decorators = [
-  StoreDecorator({
-    articleDetails: {
-      data: article,
-    },
-  }),
-];
+export const LoadingList = Template.bind({});
+LoadingList.args = {
+  articles: [],
+  isLoading: true,
+  view: ArticleView.LIST,
+};
+
+export const LoadingGrid = Template.bind({});
+LoadingGrid.args = {
+  articles: [],
+  isLoading: true,
+  view: ArticleView.GRID,
+};
+
+export const List = Template.bind({});
+List.args = {
+  articles: new Array(9).fill(0).map((item, index) => ({
+    ...article,
+    id: String(index),
+  })),
+  isLoading: false,
+  view: ArticleView.LIST,
+};
+
+export const Grid = Template.bind({});
+Grid.args = {
+  articles: new Array(9).fill(0).map((item, index) => ({
+    ...article,
+    id: String(index),
+  })),
+  isLoading: false,
+  view: ArticleView.GRID,
+};

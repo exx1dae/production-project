@@ -6,6 +6,7 @@
   position: relative;
   transition: width .3s;
   z-index: var(--sidebar-z-index);
+  flex-shrink: 0;
 }
 
 .switchers {
@@ -28,6 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
+  row-gap: 8px;
 }
 
 .collapsed {
