@@ -24,6 +24,7 @@ import { Country } from "entities/Country";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ValidateProfileError } from "entities/Profile/model/types/profile";
 import { useParams } from "react-router-dom";
+import { Page } from "shared/ui/Page/Page";
 
 interface ProfilePageProps {
   className?: string;
@@ -114,15 +115,15 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   if (!id) {
     return (
-      <div className={classNames("", {}, [className])}>
+      <Page className={classNames("", {}, [className])}>
         {t("Данного пользователя не существует")}
-      </div>
+      </Page>
     );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames("", {}, [className])}>
+      <Page className={classNames("", {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length &&
           validateErrors.map((error) => (
@@ -146,7 +147,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           onChangeCurrency={onChangeCurrency}
           onChangeCountry={onChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
