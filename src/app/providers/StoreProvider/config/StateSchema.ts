@@ -15,10 +15,12 @@ import { LoginSchema } from "features/AuthByUsername";
 import { ArticleCommentsSchema } from "features/ArticleCommentList";
 import { AddNewCommentSchema } from "features/AddNewComment";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
+import { ScrollSaveSchema } from "widgets/Page/ScrollSave";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
 
   // Async
   loginForm?: LoginSchema;
