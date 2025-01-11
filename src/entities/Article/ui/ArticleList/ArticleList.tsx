@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 
 import cls from "./ArticleList.module.scss";
 import { Article, ArticleView } from "../../model/types/article";
@@ -13,6 +13,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -22,11 +23,22 @@ const getSkeletons = (view: ArticleView) =>
   ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
-  const { className, articles, view = ArticleView.GRID, isLoading } = props;
+  const {
+    className,
+    articles,
+    view = ArticleView.GRID,
+    isLoading,
+    target,
+  } = props;
   const { t } = useTranslation("article");
 
   const renderArticle = (article: Article) => (
-    <ArticleListItem key={article.id} article={article} view={view} />
+    <ArticleListItem
+      target={target}
+      key={article.id}
+      article={article}
+      view={view}
+    />
   );
 
   if (!isLoading && !articles.length) {
