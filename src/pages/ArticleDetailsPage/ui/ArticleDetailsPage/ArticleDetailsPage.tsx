@@ -3,7 +3,7 @@ import cls from "./ArticleDetailsPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
 import { ArticleDetails, ArticleList, ArticleView } from "entities/Article";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { CommentList } from "entities/Comment";
 import { Text, TextAlign, TextSize } from "shared/ui/Text/Text";
 import {
@@ -26,11 +26,10 @@ import { AddCommentForm } from "features/AddNewComment";
 
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { addCommentForArticle } from "../../model/addCommentForArticle/addCommentForArticle";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { Page } from "widgets/Page/Page";
 import { articleDetailsPageReducer } from "../../model/types";
+import { ArticleDetailsPageHeader } from "../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -44,7 +43,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation("article");
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   // comments
   const comments = useSelector(getArticleComments.selectAll);
@@ -68,10 +66,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     [dispatch],
   );
 
-  const onBackClick = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
-
   if (!id && __PROJECT__ !== "storybook") {
     return (
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -83,9 +77,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <Button onClick={onBackClick} theme={ButtonTheme.OUTLINE}>
-          {t("Назад к списку")}
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id || "1"} />
         <Text
           size={TextSize.lg}

@@ -6,6 +6,9 @@ import { memo, useCallback, useState } from "react";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 
 interface NavbarProps {
   className?: string;
@@ -14,6 +17,7 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const authData = useSelector(getUserAuthData);
@@ -30,9 +34,25 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     dispatch(userActions.logout());
   }, [dispatch]);
 
+  const onCreateClick = useCallback(() => {
+    navigate(RoutePath.articles_create);
+  }, [navigate]);
+
   if (authData) {
     return (
       <header className={classNames(cls.navbar, {}, [className])}>
+        <Button
+          theme={ButtonTheme.CLEAR_INVERTED}
+          className={cls.links}
+          onClick={onCreateClick}
+        >
+          {t("Создать статью")}
+        </Button>
+        <Text
+          theme={TextTheme.INVERTED}
+          className={cls.title}
+          title={t("Articles Library")}
+        />
         <Button
           theme={ButtonTheme.CLEAR_INVERTED}
           className={cls.links}

@@ -4,11 +4,19 @@
   background: var(--inverted-bg-color);
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: space-between;
   padding: 20px;
+  position: relative;
 }
 
 .links {
   display: flex;
   column-gap: 10px;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
