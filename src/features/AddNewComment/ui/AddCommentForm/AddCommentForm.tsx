@@ -3,10 +3,7 @@ import { memo, useCallback } from "react";
 import { useSelector } from "react-redux";
 
 import cls from "./AddCommentForm.module.scss";
-import {
-  getAddCommentError,
-  getAddCommentText,
-} from "../../model/selectors/AddNewCommentSelectors";
+import { getAddCommentText } from "../../model/selectors/AddNewCommentSelectors";
 import {
   addNewCommentActions,
   addNewCommentReducer,
@@ -36,7 +33,6 @@ const AddCommentForm = memo(
     const dispatch = useAppDispatch();
 
     const text = useSelector(getAddCommentText);
-    const error = useSelector(getAddCommentError);
 
     const onCommentTextChange = useCallback(
       (value: string) => {

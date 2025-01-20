@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { CommentCard } from "./CommentCard";
-import { Comment } from "entities/Comment";
+import { Comment } from "../../model/types/comment";
 
 export default {
   title: "entities/Comment/CommentCard",

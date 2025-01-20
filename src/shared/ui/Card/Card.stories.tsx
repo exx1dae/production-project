@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { Card } from "./Card";
-import { Text } from "shared/ui/Text/Text";
+import { Text } from "../Text/Text";
 
 export default {
   title: "shared/Card",
@@ -12,7 +12,10 @@ export default {
   },
 } as ComponentMeta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+const Template: ComponentStory<typeof Card> = (args) => (
+  // eslint-disable-next-line react/destructuring-assignment
+  <Card {...args}>{args.children}</Card>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

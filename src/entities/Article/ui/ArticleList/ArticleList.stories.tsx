@@ -8,18 +8,7 @@ import {
   ArticleType,
   ArticleView,
 } from "../../model/types/article";
-
-export default {
-  title: "entities/Article/ArticleList",
-  component: ArticleList,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
-} as ComponentMeta<typeof ArticleList>;
-
-const Template: ComponentStory<typeof ArticleList> = (args) => (
-  <ArticleList {...args} />
-);
+import storeDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const article: Article = {
   id: "1",
@@ -72,6 +61,28 @@ const article: Article = {
     },
   ],
 };
+
+export default {
+  title: "entities/Article/ArticleList",
+  component: ArticleList,
+  argTypes: {
+    backgroundColor: { control: "color" },
+  },
+} as ComponentMeta<typeof ArticleList>;
+
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+  <ArticleList {...args} />
+);
+
+Template.decorators = [
+  storeDecorator({
+    articlesPage: {
+      entities: {
+        article,
+      },
+    },
+  }),
+];
 
 export const LoadingList = Template.bind({});
 LoadingList.args = {

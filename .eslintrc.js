@@ -20,7 +20,13 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
+  plugins: [
+    "react",
+    "@typescript-eslint",
+    "i18next",
+    "react-hooks",
+    "exx1dae-plugin",
+  ],
   rules: {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [
@@ -32,9 +38,18 @@ module.exports = {
     "import/no-unresolved": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off",
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        vars: "all", // Проверять все переменные
+        varsIgnorePattern: "^_", // Игнорировать переменные, начинающиеся с '_'
+        args: "after-used", // Проверять аргументы функций
+        argsIgnorePattern: "^_", // Игнорировать параметры, начинающиеся с '_'
+      },
+    ],
     "react/require-default-props": "off",
-    "react/jsx-props-no-spreading": "warn",
+    "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": "off",
     "no-shadow": "off",
     "import/no-extraneous-dependencies": "off",
@@ -55,6 +70,8 @@ module.exports = {
     "no-param-reassign": "off",
     "no-underscore-dangle": "off",
     "no-undef": "off",
+    "no-console": "off",
+    "exx1dae-plugin/path-checker": "error",
   },
   globals: {
     DEV: true,

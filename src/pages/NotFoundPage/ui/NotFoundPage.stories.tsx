@@ -1,6 +1,6 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { NotFoundPage } from "pages/NotFoundPage";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { NotFoundPage } from "./NotFoundPage";
 
 export default {
   title: "pages/NotFoundPage",

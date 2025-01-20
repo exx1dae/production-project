@@ -568,14 +568,14 @@
   "profile": [
     {
       "id": "1",
-      "name": "Sarkis",
-      "lastname": "Shainyan",
+      "name": "Sarkis1",
+      "lastname": "Shainyan1",
       "age": 21,
       "currency": "RUB",
       "country": "Russia",
       "city": "Zhukovsky",
       "username": "sarkis",
-      "avatar": "https://placehold.co/128x128"
+      "avatar": "https://placehold.co/256x256"
     },
     {
       "id": "2",

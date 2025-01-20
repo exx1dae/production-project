@@ -5,7 +5,7 @@ import {
   AppRoutesProps,
   routeConfig,
 } from "shared/config/routeConfig/routeConfig";
-import RequireAuth from "app/providers/router/ui/RequireAuth";
+import RequireAuth from "./RequireAuth";
 
 export const AppRouter = memo(() => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {

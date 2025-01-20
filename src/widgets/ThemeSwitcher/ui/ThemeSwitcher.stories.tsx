@@ -1,6 +1,6 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export default {
   title: "widgets/ThemeSwitcher",

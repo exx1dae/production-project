@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Navbar } from "widgets/Navbar";
+import { Navbar } from "./Navbar";
 import StoreDecorator from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 export default {

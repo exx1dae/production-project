@@ -14,26 +14,33 @@ export const useInfiniteScroll = (props: UseInfiniteScrollOptions) => {
     const wrapperElement = wrapperRef.current;
     const triggerElement = triggerRef.current;
 
+    console.log(wrapperElement);
+    console.log(triggerElement);
+
     if (callback) {
+      console.log("callback");
       const options = {
         root: wrapperElement,
         rootMargin: "0px",
-        threshold: 1.0,
+        threshold: 0.01,
       };
 
-      observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          callback();
-        }
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          console.log("IntersectionObserver entry:", entry);
+          if (entry.isIntersecting) {
+            console.log("Trigger intersected");
+            callback();
+          }
+        });
       }, options);
 
       observer.observe(triggerElement);
     }
 
     return () => {
-      if (observer && triggerElement) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        observer.unobserve(triggerElement);
+      if (observer) {
+        observer.disconnect();
       }
     };
   }, [triggerRef, wrapperRef, callback]);

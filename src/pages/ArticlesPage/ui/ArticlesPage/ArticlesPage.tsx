@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
 
 import { ArticleList } from "entities/Article";
@@ -35,22 +34,20 @@ const reducers: ReducersList = {
 };
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
-  const { t } = useTranslation("article");
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
-
   const [searchParams] = useSearchParams();
-
-  const onLoadNextPart = useCallback(() => {
-    dispatch(fetchNextArticlesPage());
-  }, [dispatch]);
 
   useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
   });
 
   const articles = useSelector(getArticles.selectAll);
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
+  }, [dispatch]);
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>

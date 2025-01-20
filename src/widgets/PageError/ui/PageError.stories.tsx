@@ -1,6 +1,6 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { PageError } from "widgets/PageError";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { PageError } from "./PageError";
 
 export default {
   title: "widgets/PageError",

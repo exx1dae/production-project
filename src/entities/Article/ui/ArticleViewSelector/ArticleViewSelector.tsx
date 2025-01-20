@@ -1,5 +1,4 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { useTranslation } from "react-i18next";
 import { memo } from "react";
 
 import cls from "./ArticleViewSelector.module.scss";
@@ -30,7 +29,6 @@ const viewsTypes = [
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
   const { className, view, onViewClick } = props;
-  const { t } = useTranslation();
 
   const onClickHandler = (newView: ArticleView) => {
     return () => {

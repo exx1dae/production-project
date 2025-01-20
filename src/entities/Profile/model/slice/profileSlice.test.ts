@@ -1,6 +1,6 @@
 import { Profile, ProfileSchema, ValidateProfileError } from "../types/profile";
 import { profileActions, profileReducer } from "./profileSlice";
-import { updateProfileData } from "entities/Profile";
+import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 
 describe("profileSlice.test", () => {
   test("test set readonly", () => {
