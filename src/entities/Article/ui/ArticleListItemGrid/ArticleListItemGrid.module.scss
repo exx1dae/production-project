@@ -1,0 +1,58 @@
+.item {
+  width: 100%;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+  margin: 0 auto;
+
+  .img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .date {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+
+    .date {
+      display: block;
+      opacity: 0.8;
+    }
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 8px;
+    background: var(--card-bg);
+    position: relative;
+  }
+
+  .imageWrapper {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+
+  .types p {
+    width: 115px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  .title p {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+}

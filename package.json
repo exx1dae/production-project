@@ -61,7 +61,7 @@
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-exx1dae-plugin": "^0.0.2",
+    "eslint-plugin-exx1dae-plugin": "^0.0.3-fix",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",

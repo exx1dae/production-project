@@ -2,15 +2,9 @@
   min-height: 100%;
 }
 
-.title {
-  margin: 24px 0 16px;
-}
-
 .recommendations {
   display: flex !important;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
-  overflow-x: auto;
+  flex-flow: row nowrap;
+  overflow: auto hidden;
   padding: 16px;
 }

@@ -6,7 +6,6 @@ import {
   Article,
   ArticleBlockType,
   ArticleType,
-  ArticleView,
 } from "../../model/types/article";
 
 export default {
@@ -74,7 +73,4 @@ const article: Article = {
 };
 
 export const List = Template.bind({});
-List.args = { view: ArticleView.LIST, article };
-
-export const Grid = Template.bind({});
-Grid.args = { view: ArticleView.GRID, article };
+List.args = { article };

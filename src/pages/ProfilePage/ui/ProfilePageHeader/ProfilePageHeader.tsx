@@ -1,4 +1,3 @@
-import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ProfilePageHeader.module.scss";
 import { useTranslation } from "react-i18next";
 import { Text } from "shared/ui/Text/Text";
@@ -13,12 +12,9 @@ import {
 import { useCallback } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { getUserAuthData } from "entities/User";
+import { HStack } from "shared/ui/Stack";
 
-interface ProfilePageHeaderProps {
-  className?: string;
-}
-
-export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
+export const ProfilePageHeader = () => {
   const { t } = useTranslation("profile");
   const authData = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileData);
@@ -41,10 +37,10 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+    <HStack full justify="between">
       <Text title={t("Профиль")} />
       {canEdit && (
-        <div className={cls.btnsWrapper}>
+        <HStack>
           {readonly ? (
             <Button
               theme={ButtonTheme.OUTLINE}
@@ -54,17 +50,17 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
               {t("Редактировать")}
             </Button>
           ) : (
-            <div className={cls.btnGroup}>
+            <HStack gap={8}>
               <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
                 {t("Отменить")}
               </Button>
               <Button theme={ButtonTheme.BACKGROUND} onClick={onSaveEdit}>
                 {t("Сохранить")}
               </Button>
-            </div>
+            </HStack>
           )}
-        </div>
+        </HStack>
       )}
-    </div>
+    </HStack>
   );
 };

@@ -24,6 +24,7 @@ import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPag
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { ArticlesPageFilters } from "../../ui/ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
+import { VStack } from "shared/ui/Stack";
 
 interface ArticlesPageProps {
   className?: string;
@@ -55,13 +56,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         onScrollEnd={onLoadNextPart}
         className={classNames(cls.ArticlesPage, {}, [className])}
       >
-        <ArticlesPageFilters />
-        <ArticleList
-          className={cls.list}
-          view={view}
-          articles={articles}
-          isLoading={isLoading}
-        />
+        <VStack full gap={32}>
+          <ArticlesPageFilters />
+          <ArticleList view={view} articles={articles} isLoading={isLoading} />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

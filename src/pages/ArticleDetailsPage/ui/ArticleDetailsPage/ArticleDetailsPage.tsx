@@ -30,6 +30,7 @@ import { addCommentForArticle } from "../../model/services/addCommentForArticle/
 import { Page } from "widgets/Page/Page";
 import { articleDetailsPageReducer } from "../../model/types";
 import { ArticleDetailsPageHeader } from "../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader";
+import { VStack } from "shared/ui/Stack";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -76,31 +77,32 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails id={id || "1"} />
-        <Text
-          size={TextSize.lg}
-          title={t("Рекоммендации")}
-          align={TextAlign.CENTER}
-          className={cls.title}
-        />
-        <ArticleList
-          className={cls.recommendations}
-          articles={recommendations}
-          view={ArticleView.GRID}
-          isLoading={recommendationsIsLoading}
-          /* eslint-disable-next-line i18next/no-literal-string */
-          target="_blank"
-        />
-        <Text
-          size={TextSize.lg}
-          title={t("Комментарии")}
-          align={TextAlign.CENTER}
-          className={cls.title}
-        />
-        <AddCommentForm onSendComment={onSendComment} />
-        <CommentList comments={comments} isLoading={commentsIsLoading} />
+      <Page className={classNames("", {}, [className])}>
+        <VStack full align="center" gap={32}>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={id || "1"} />
+          <Text
+            size={TextSize.lg}
+            title={t("Рекоммендации")}
+            align={TextAlign.CENTER}
+          />
+          <ArticleList
+            className={cls.recommendations}
+            articles={recommendations}
+            view={ArticleView.GRID}
+            isLoading={recommendationsIsLoading}
+            /* eslint-disable-next-line i18next/no-literal-string */
+            target="_blank"
+          />
+          <Text
+            size={TextSize.lg}
+            title={t("Комментарии")}
+            align={TextAlign.CENTER}
+            className={cls.title}
+          />
+          <AddCommentForm onSendComment={onSendComment} />
+          <CommentList comments={comments} isLoading={commentsIsLoading} />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

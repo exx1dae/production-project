@@ -1,11 +1,8 @@
-.Tabs {
-  display: flex;
-  gap: 8px;
-  cursor: pointer;
-}
-
 .tab {
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-wrap: nowrap;
   text-align: center;
+  cursor: pointer;
 }

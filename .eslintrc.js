@@ -57,7 +57,7 @@ module.exports = {
       "error",
       {
         markupOnly: true,
-        ignoreAttribute: ["data-testid", "to"],
+        ignoreAttribute: ["data-testid", "to", "justify", "align", "direction"],
       },
     ],
     "import/order": "off",
@@ -80,7 +80,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["**/src/**/*.test.{ts, tsx}"],
+      files: ["**/src/**/*.test.{ts, tsx}", "*.stories.*"],
       rules: {
         "i18next/no-literal-string": "off",
       },

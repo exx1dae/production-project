@@ -17,6 +17,7 @@ import {
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { VStack } from "shared/ui/Stack";
 
 export interface LoginFormProps {
   className?: string;
@@ -60,7 +61,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   return (
     // eslint-disable-next-line i18next/no-literal-string
     <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
-      <div className={classNames(cls.LoginForm, {}, [className])}>
+      <VStack gap={32} className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t("Форма авторизации")} />
         {error && (
           <Text
@@ -68,30 +69,32 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
             theme={TextTheme.ERROR}
           />
         )}
-        <Input
-          placeholder={t("Введите имя")}
-          type="text"
-          className={cls.input}
-          autofocus
-          onChange={onChangeUsername}
-          value={username}
-        />
-        <Input
-          placeholder={t("Введите пароль")}
-          type="password"
-          className={cls.input}
-          onChange={onChangePassword}
-          value={password}
-        />
+        <VStack full gap={16}>
+          <Input
+            placeholder={t("Введите имя")}
+            type="text"
+            className={cls.input}
+            autofocus
+            onChange={onChangeUsername}
+            value={username}
+          />
+          <Input
+            placeholder={t("Введите пароль")}
+            type="password"
+            className={cls.input}
+            onChange={onChangePassword}
+            value={password}
+          />
+        </VStack>
         <Button
           onClick={onLoginClick}
-          theme={ButtonTheme.CLEAR}
+          theme={ButtonTheme.BACKGROUND_INVERTED}
           className={cls.loginBtn}
           disabled={isLoading}
         >
           {t("Войти")}
         </Button>
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

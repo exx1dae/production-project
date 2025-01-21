@@ -14,11 +14,7 @@ export const useInfiniteScroll = (props: UseInfiniteScrollOptions) => {
     const wrapperElement = wrapperRef.current;
     const triggerElement = triggerRef.current;
 
-    console.log(wrapperElement);
-    console.log(triggerElement);
-
     if (callback) {
-      console.log("callback");
       const options = {
         root: wrapperElement,
         rootMargin: "0px",
@@ -27,7 +23,6 @@ export const useInfiniteScroll = (props: UseInfiniteScrollOptions) => {
 
       observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          console.log("IntersectionObserver entry:", entry);
           if (entry.isIntersecting) {
             console.log("Trigger intersected");
             callback();

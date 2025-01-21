@@ -16,7 +16,6 @@ import { Input } from "shared/ui/Input/Input";
 import { SortOrder } from "shared/types";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
-import cls from "./ArticlesPageFilters.module.scss";
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -27,6 +26,7 @@ import {
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticlesFiltersProps {
   className?: string;
@@ -93,8 +93,8 @@ export const ArticlesPageFilters = memo(
     );
 
     return (
-      <div className={classNames(cls.ArticlesFilters, {}, [className])}>
-        <div className={cls.sortWrapper}>
+      <VStack gap={16} full className={classNames("", {}, [className])}>
+        <HStack full align="start" justify="between">
           <ArticleSortSelector
             sort={sort}
             order={order}
@@ -102,20 +102,18 @@ export const ArticlesPageFilters = memo(
             onChangeSort={onChangeSort}
           />
           <ArticleViewSelector view={view} onViewClick={onChangeView} />
-        </div>
-        <Card className={cls.search}>
-          <Input
-            value={query}
-            onChange={onChangeSearch}
-            placeholder={t("Поиск")}
-          />
-        </Card>
-        <ArticleTypeTabs
-          className={cls.tabs}
-          value={type}
-          onChangeType={onChangeType}
-        />
-      </div>
+        </HStack>
+        <VStack full align="start" gap={16}>
+          <Card>
+            <Input
+              value={query}
+              onChange={onChangeSearch}
+              placeholder={t("Поиск")}
+            />
+          </Card>
+          <ArticleTypeTabs value={type} onChangeType={onChangeType} />
+        </VStack>
+      </VStack>
     );
   },
 );

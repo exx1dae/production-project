@@ -9,6 +9,7 @@ import { getUserAuthData, userActions } from "entities/User";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { HStack } from "shared/ui/Stack";
 
 interface NavbarProps {
   className?: string;
@@ -40,7 +41,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.navbar, {}, [className])}>
+      <HStack
+        full
+        justify="between"
+        className={classNames(cls.navbar, {}, [className])}
+      >
         <Button
           theme={ButtonTheme.CLEAR_INVERTED}
           className={cls.links}
@@ -60,12 +65,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         >
           {t("Выйти")}
         </Button>
-      </header>
+      </HStack>
     );
   }
 
   return (
-    <header className={classNames(cls.navbar, {}, [className])}>
+    <HStack justify="end" className={classNames(cls.navbar, {}, [className])}>
       <Button
         theme={ButtonTheme.CLEAR_INVERTED}
         className={cls.links}
@@ -76,6 +81,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       )}
-    </header>
+    </HStack>
   );
 });

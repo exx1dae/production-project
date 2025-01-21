@@ -1,21 +1,14 @@
 .Sidebar {
+  display: inline-flex;
+  flex-direction: column;
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
   background: var(--inverted-bg-color);
   text-align: center;
   position: relative;
-  transition: width .3s;
+  transition: width .3s ease-in-out;
   z-index: var(--sidebar-z-index);
   flex-shrink: 0;
-}
-
-.switchers {
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  justify-content: center;
-  column-gap: 20px;
-  width: 100%;
 }
 
 .collapseBtn {
@@ -24,22 +17,6 @@
   right: -32px;
 }
 
-.menu {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  row-gap: 8px;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
-
-  .switchers {
-    flex-direction: column;
-  }
-
-  .item {
-    column-gap: 0;
-  }
 }
