@@ -4,7 +4,6 @@ import { Article } from "../../../model/types/article";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import cls from "../../ui/ArticleListItem/ArticleListItem.module.scss";
 import { Text } from "shared/ui/Text/Text";
 import { Icon } from "shared/ui/Icon/Icon";
 import EyeIcon from "shared/assets/icons/eyeIcon.svg";
@@ -27,8 +26,8 @@ export const ArticleListItemFooter = memo(
           <Button theme={ButtonTheme.OUTLINE}>{t("Читать далее")}</Button>
         </AppLink>
         <HStack gap={8}>
-          <Text className={cls.views} text={String(article.views)} />
-          <Icon className={cls.icon} Svg={EyeIcon} />
+          <Text text={String(article.views)} />
+          <Icon Svg={EyeIcon} />
         </HStack>
       </HStack>
     );
