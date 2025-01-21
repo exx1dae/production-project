@@ -40,6 +40,13 @@ Large.args = {
   size: TextSize.lg,
 };
 
+export const ExtraLarge = Template.bind({});
+ExtraLarge.args = {
+  title: "Title",
+  text: "Description",
+  size: TextSize.xl,
+};
+
 export const OnlyTitle = Template.bind({});
 OnlyTitle.args = {
   title: "OnlyTitle",

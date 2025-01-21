@@ -20,7 +20,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   };
 
   return (
-    <menu
+    <aside
       data-testid="sidebar"
       className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
         className,
@@ -39,6 +39,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         {collapsed ? ">" : "<"}
       </Button>
       <SidebarSwitchers collapsed={collapsed} />
-    </menu>
+    </aside>
   );
 });

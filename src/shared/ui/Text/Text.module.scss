@@ -68,3 +68,13 @@
     font: var(--font-xl);
   }
 }
+
+.size_xl {
+  .text {
+    font: var(--font-xl);
+  }
+
+  .title {
+    font: var(--font-xxl);
+  }
+}

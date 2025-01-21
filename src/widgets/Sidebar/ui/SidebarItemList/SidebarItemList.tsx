@@ -23,6 +23,7 @@ export const SidebarItemList = memo((props: SidebarItemListProps) => {
       className={classNames(cls.list, { [cls.collapsed]: collapsed }, [
         className,
       ])}
+      role="navigation"
     >
       {items.map((item) => (
         <SidebarItem key={item.path} item={item} collapsed={collapsed} />

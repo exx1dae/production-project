@@ -2,9 +2,10 @@ import { Flex, FlexProps } from "../Flex/Flex";
 
 type VStackProps = Omit<FlexProps, "direction">;
 
-export const VStack = ({ children, ...rest }: VStackProps) => {
+export const VStack = (props: VStackProps) => {
+  const { children } = props;
   return (
-    <Flex direction="column" {...rest}>
+    <Flex {...props} direction="column">
       {children}
     </Flex>
   );
