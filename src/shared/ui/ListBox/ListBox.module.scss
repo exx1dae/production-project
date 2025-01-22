@@ -1,0 +1,121 @@
+@use 'sass:color';
+
+.ListBox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.trigger {
+  padding: 8px 16px;
+}
+
+.options {
+  position: absolute;
+  z-index: var(--list-box-z-index);
+  background: var(--list-box-bg);
+  padding: 0;
+  border-radius: 8px;
+}
+
+.option {
+  margin: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: background-color .3s ease-in-out;
+  box-shadow: 4px 4px 8px var(--list-box-bg);
+
+  &:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  &:hover:not(.disabled) {
+    background-color: var(--inverted-primary-color);
+  }
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+
+  .option {
+    &:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
+
+.bottom {
+  top: 100%;
+  margin-top: 16px;
+}
+
+.top {
+  bottom: 100%;
+  margin-bottom: 16px;
+}
+
+.top, .bottom {
+  width: 100%;
+  right: 0;
+
+  &.horizontal {
+    width: initial;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+label ~ .options.top, label ~ .options.bottom {
+  width: 50%;
+  right: 0;
+
+  &.horizontal {
+    width: initial;
+    right: 0;
+  }
+}
+
+
+.right {
+  top: 50%;
+  left: 100%;
+  margin-left: 16px;
+  transform: translateY(-50%);
+}
+
+.left {
+  top: 50%;
+  right: 100%;
+  margin-right: 8px;
+  transform: translateY(-50%);
+}
+
+.active {
+  background-color: var(--inverted-primary-color);
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: var(--disabled);
+}

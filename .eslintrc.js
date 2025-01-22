@@ -64,6 +64,7 @@ module.exports = {
           "align",
           "direction",
           "role",
+          "as",
         ],
       },
     ],
