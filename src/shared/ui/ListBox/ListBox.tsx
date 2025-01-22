@@ -4,14 +4,13 @@ import { classNames } from "shared/lib/classNames/classNames";
 
 import cls from "./ListBox.module.scss";
 import { Button } from "../Button/Button";
+import { ListBoxDirection } from "shared/types/ui";
 
 export type ListBoxItemType = {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 };
-
-type DropdownDirection = "bottom" | "top" | "left" | "right";
 
 interface ListBoxProps {
   className?: string;
@@ -20,7 +19,7 @@ interface ListBoxProps {
   defaultValue?: string;
   onChange: <T extends string>(value: T) => void;
   readonly?: boolean;
-  direction?: DropdownDirection;
+  direction?: ListBoxDirection;
   label?: string;
   horizontal?: boolean;
 }

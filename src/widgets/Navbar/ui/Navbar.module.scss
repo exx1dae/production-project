@@ -1,18 +1,9 @@
 .navbar {
+  display: flex;
   height: var(--navbar-height);
+  width: 100vw;
   background: var(--inverted-bg-color);
   padding: 20px;
   position: relative;
 }
 
-.links {
-  display: flex;
-  column-gap: 10px;
-}
-
-.title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
