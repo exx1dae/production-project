@@ -2,12 +2,11 @@ import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
 import { User, userActions } from "entities/User";
 import { Avatar } from "shared/ui/Avatar/Avatar";
-import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { Dropdown, DropdownItemType } from "shared/ui/Dropdown/Dropdown";
 import { useDispatch } from "react-redux";
 
 import cls from "./UserDropdown.module.scss";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { DropdownItemType } from "shared/ui/Dropdown/DropdownItem/DropdownItem";
 
 interface UserDropdownProps {
   currentUser: User;
