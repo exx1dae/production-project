@@ -20,7 +20,13 @@ export const SidebarSwitchers = memo((props: SidebarSwitchersProps) => {
   );
 
   return collapsed ? (
-    <VStack full gap={8} justify="center" className={cls.switchers}>
+    <VStack
+      full
+      align="center"
+      gap={8}
+      justify="center"
+      className={cls.switchers}
+    >
       {content}
     </VStack>
   ) : (

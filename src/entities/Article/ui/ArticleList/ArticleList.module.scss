@@ -3,12 +3,12 @@
   width: 100%;
 }
 
-.ArticleList.grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
 }
 
-.ArticleList.list {
+.list {
   display: flex;
   flex-direction: column;
 }

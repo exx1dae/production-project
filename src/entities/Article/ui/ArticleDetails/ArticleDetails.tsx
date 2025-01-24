@@ -53,7 +53,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   } else {
     content = (
       <VStack gap={16}>
-        <Avatar size={128} src={article?.img} />
+        <HStack full justify="center">
+          <Avatar size={128} src={article?.img} />
+        </HStack>
         <VStack gap={4} full align="start">
           <Text
             align={TextAlign.LEFT}

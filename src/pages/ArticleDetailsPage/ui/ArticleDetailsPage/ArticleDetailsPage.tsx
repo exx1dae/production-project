@@ -2,7 +2,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleDetailsPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-import { ArticleDetails, ArticleList, ArticleView } from "entities/Article";
+import { ArticleDetails } from "entities/Article";
 import { useParams } from "react-router-dom";
 import { CommentList } from "entities/Comment";
 import { Text, TextAlign, TextSize } from "shared/ui/Text/Text";
@@ -17,11 +17,6 @@ import {
   getArticleComments,
   getArticleCommentsIsLoading,
 } from "features/ArticleCommentList";
-import {
-  fetchArticleRecommendations,
-  getArticleRecommendations,
-  getArticleRecommendationsIsLoading,
-} from "features/ArticleRecommendations";
 import { AddCommentForm } from "features/AddNewComment";
 
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
@@ -31,6 +26,7 @@ import { Page } from "widgets/Page/Page";
 import { articleDetailsPageReducer } from "../../model/types";
 import { ArticleDetailsPageHeader } from "../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import { VStack } from "shared/ui/Stack";
+import { ArticleRecommendationsList } from "features/articleRecommendationsList";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -49,15 +45,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-  // recommendations
-  const recommendations = useSelector(getArticleRecommendations.selectAll);
-  const recommendationsIsLoading = useSelector(
-    getArticleRecommendationsIsLoading,
-  );
-
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
-    dispatch(fetchArticleRecommendations());
   });
 
   const onSendComment = useCallback(
@@ -78,22 +67,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames("", {}, [className])}>
-        <VStack full align="center" gap={32}>
+        <VStack full gap={32}>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id || "1"} />
-          <Text
-            size={TextSize.lg}
-            title={t("Рекоммендации")}
-            align={TextAlign.CENTER}
-          />
-          <ArticleList
-            className={cls.recommendations}
-            articles={recommendations}
-            view={ArticleView.GRID}
-            isLoading={recommendationsIsLoading}
-            /* eslint-disable-next-line i18next/no-literal-string */
-            target="_blank"
-          />
+          <ArticleRecommendationsList />
           <Text
             size={TextSize.lg}
             title={t("Комментарии")}

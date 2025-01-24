@@ -1,8 +1,7 @@
-import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./ArticleCodeBlockComponent.module.scss";
 import { memo } from "react";
 import { ArticleCodeBlock } from "../../model/types/article";
 import { Code } from "shared/ui/Code/Code";
+import { HStack } from "shared/ui/Stack";
 
 interface ArticleCodeBlockComponentProps {
   className?: string;
@@ -12,11 +11,9 @@ interface ArticleCodeBlockComponentProps {
 export const ArticleCodeBlockComponent = memo(
   ({ className, block }: ArticleCodeBlockComponentProps) => {
     return (
-      <div
-        className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}
-      >
+      <HStack justify="center" full>
         <Code text={block.code} />
-      </div>
+      </HStack>
     );
   },
 );

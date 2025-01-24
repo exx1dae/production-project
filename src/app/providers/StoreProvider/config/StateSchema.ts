@@ -19,11 +19,13 @@ import { ArticlesPageSchema } from "pages/ArticlesPage";
 // widgets
 import { ScrollSaveSchema } from "widgets/Page/ScrollSave";
 import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
+import { rtkApi } from "shared/api/rtkApi";
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scrollSave: ScrollSaveSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Async
   loginForm?: LoginSchema;
