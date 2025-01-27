@@ -73,9 +73,9 @@ const article: Article = {
   ],
 };
 
-export const Primary = Template.bind({});
-Primary.args = {};
-Primary.decorators = [
+export const NotFound = Template.bind({});
+NotFound.args = {};
+NotFound.decorators = [
   StoreDecorator({
     articleDetails: {
       data: article,

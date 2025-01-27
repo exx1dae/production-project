@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
-import { ValidateProfileError } from "entities/Profile/model/types/profile";
 import { HStack } from "shared/ui/Stack";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { ValidateProfileError } from "../../model/types/editableProfileCardSchema";
 
 interface ProfileValidateErrorsListProps {
   validateErrors: ValidateProfileError[];

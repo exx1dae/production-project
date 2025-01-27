@@ -7,7 +7,6 @@ import {
 } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
 // entities
-import { ProfileSchema } from "entities/Profile";
 import { ArticleDetailsSchema } from "entities/Article";
 import { CounterSchema } from "entities/Counter";
 import { UserSchema } from "entities/User";
@@ -20,6 +19,7 @@ import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { ScrollSaveSchema } from "widgets/Page/ScrollSave";
 // shared
 import { rtkApi } from "shared/api/rtkApi";
+import { ProfileSchema } from "features/editableProfileCard";
 
 export interface StateSchema {
   counter: CounterSchema;

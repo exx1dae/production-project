@@ -57,60 +57,52 @@ export const ProfileCard = (props: ProfileCardProps) => {
     <VStack
       align="start"
       full
-      gap={8}
+      gap={16}
       className={classNames(cls.ProfileCard, {}, [className])}
     >
       {data?.avatar && <Avatar className={cls.avatar} src={data.avatar} />}
       <Input
         value={data?.username}
         placeholder={t("Ваше пользовательское имя")}
-        className={cls.input}
         readonly={readonly}
         onChange={onChangeUsername}
       />
       <Input
         value={data?.name}
         placeholder={t("Ваше имя")}
-        className={cls.input}
         readonly={readonly}
         onChange={onChangeFirstname}
       />
       <Input
         value={data?.lastname}
         placeholder={t("Ваша фамилия")}
-        className={cls.input}
         readonly={readonly}
         onChange={onChangeLastname}
       />
       <Input
         value={data?.age}
         placeholder={t("Ваш возраст")}
-        className={cls.input}
         readonly={readonly}
         onChange={onChangeAge}
       />
       <Input
         value={data?.city}
         placeholder={t("Ваш город")}
-        className={cls.input}
         readonly={readonly}
         onChange={onChangeCity}
       />
       <Input
         value={data?.avatar}
         placeholder={t("Ваше изображение профиля")}
-        className={cls.input}
         readonly={readonly}
         onChange={onChangeAvatar}
       />
       <CurrencySelect
-        className={cls.input}
         value={data?.currency}
         readonly={readonly}
         onChange={onChangeCurrency}
       />
       <CountrySelect
-        className={cls.input}
         value={data?.country}
         readonly={readonly}
         onChange={onChangeCountry}

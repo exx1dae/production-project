@@ -17,7 +17,7 @@ export const ArticleListItemGridSkeleton = memo(
     return (
       <div className={classNames(cls.item, {}, [className])}>
         <Card className={cls.card}>
-          <VStack align="start" gap={4}>
+          <VStack align="start" gap={16}>
             <div className={cls.imageWrapper}>
               <Skeleton className={cls.img} width={200} height={200} />
             </div>

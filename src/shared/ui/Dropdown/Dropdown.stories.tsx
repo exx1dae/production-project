@@ -30,6 +30,7 @@ BottomLeft.args = {
   trigger: "Выберите",
   direction: "bottom-left",
 };
+
 export const BottomRight = Template.bind({});
 BottomRight.args = {
   items: options,
