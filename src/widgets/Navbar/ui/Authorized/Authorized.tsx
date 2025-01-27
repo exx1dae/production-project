@@ -9,6 +9,7 @@ import { User } from "entities/User";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { useNavigate } from "react-router-dom";
 import { UserDropdown } from "./UserDropdown";
+import { classNames } from "shared/lib/classNames/classNames";
 
 interface AuthorizedProps {
   className?: string;
@@ -26,7 +27,7 @@ export const Authorized = memo((props: AuthorizedProps) => {
   }, [navigate]);
 
   return (
-    <HStack full justify="between">
+    <HStack full justify="between" className={classNames("", {}, [className])}>
       <Button
         theme={ButtonTheme.CLEAR_INVERTED}
         className={cls.links}

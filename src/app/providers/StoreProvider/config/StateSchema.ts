@@ -11,14 +11,14 @@ import { ProfileSchema } from "entities/Profile";
 import { ArticleDetailsSchema } from "entities/Article";
 import { CounterSchema } from "entities/Counter";
 import { UserSchema } from "entities/User";
+import { CommentSchema } from "entities/Comment";
 // features
 import { LoginSchema } from "features/AuthByUsername";
-import { AddNewCommentSchema } from "features/AddNewComment";
 // pages
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 // widgets
 import { ScrollSaveSchema } from "widgets/Page/ScrollSave";
-import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
+// shared
 import { rtkApi } from "shared/api/rtkApi";
 
 export interface StateSchema {
@@ -30,10 +30,9 @@ export interface StateSchema {
   // Async
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
+  comments?: CommentSchema;
   articleDetails?: ArticleDetailsSchema;
-  addNewComment?: AddNewCommentSchema;
   articlesPage?: ArticlesPageSchema;
-  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

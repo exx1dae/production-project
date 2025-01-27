@@ -3,11 +3,7 @@ import { memo } from "react";
 
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 
-interface ArticleDetailsErrorProps {
-  className?: string;
-}
-
-export const ArticleDetailsError = memo((props: ArticleDetailsErrorProps) => {
+export const ArticleDetailsError = memo(() => {
   const { t } = useTranslation();
 
   return (

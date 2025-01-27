@@ -2,11 +2,7 @@ import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { Text, TextAlign, TextSize } from "shared/ui/Text/Text";
 
-interface ArticleEmptyStateProps {
-  className?: string;
-}
-
-export const ArticleEmptyState = memo((props: ArticleEmptyStateProps) => {
+export const ArticleEmptyState = memo(() => {
   const { t } = useTranslation();
 
   return (

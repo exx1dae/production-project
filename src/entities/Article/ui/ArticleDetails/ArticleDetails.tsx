@@ -23,6 +23,7 @@ import { ArticleBlockComponent } from "../ArticleBlockComponent/ArticleBlockComp
 import { HStack, VStack } from "shared/ui/Stack";
 import { ArticleDetailsError } from "./ArticleDetailsError";
 import { ArticleDetailsSkeleton } from "./ArticleDetailsSkeleton";
+import { classNames } from "shared/lib/classNames/classNames";
 
 interface ArticleDetailsProps {
   className?: string;
@@ -52,7 +53,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     content = <ArticleDetailsError />;
   } else {
     content = (
-      <VStack gap={16}>
+      <VStack gap={16} className={classNames("", {}, [className])}>
         <HStack full justify="center">
           <Avatar size={128} src={article?.img} />
         </HStack>

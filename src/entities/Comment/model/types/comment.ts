@@ -1,7 +1,9 @@
 import { User } from "entities/User";
 
-export type Comment = {
+export interface Comment {
   id: string;
-  user: User;
   text: string;
-};
+  user: User;
+}
+
+export type CommentSchema = Omit<Comment, "id" | "user">;

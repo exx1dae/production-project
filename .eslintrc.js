@@ -65,6 +65,7 @@ module.exports = {
           "direction",
           "role",
           "as",
+          "target",
         ],
       },
     ],

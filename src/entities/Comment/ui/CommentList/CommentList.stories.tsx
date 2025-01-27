@@ -20,7 +20,9 @@ const comments: Comment[] = [
   {
     id: "1",
     // eslint-disable-next-line max-len
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque dolor, doloremque esse, ex facilis illo inventore magnam mollitia nihil nulla odit officia officiis pariatur praesentium qui, veritatis. Nostrum, sint.",
+    text:
+      // eslint-disable-next-line max-len
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque dolor, doloremque esse, ex facilis illo inventore magnam mollitia nihil nulla odit officia officiis pariatur praesentium qui, veritatis. Nostrum, sint.",
     user: {
       id: "1",
       username: "username",
@@ -29,7 +31,9 @@ const comments: Comment[] = [
   {
     id: "2",
     // eslint-disable-next-line max-len
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque dolor, doloremque esse, ex facilis illo inventore magnam mollitia nihil nulla odit officia officiis pariatur praesentium qui, veritatis. Nostrum, sint.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque dolor, doloremque esse, ex facilis illo inventore magnam mollitia nihil nulla odit officia officiis pariatur praesentium qui, veritatis. Nostrum, sint.",
+    text:
+      // eslint-disable-next-line max-len
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque dolor, doloremque esse, ex facilis illo inventore magnam mollitia nihil nulla odit officia officiis pariatur praesentium qui, veritatis. Nostrum, sint.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque dolor, doloremque esse, ex facilis illo inventore magnam mollitia nihil nulla odit officia officiis pariatur praesentium qui, veritatis. Nostrum, sint.",
     user: {
       id: "1",
       username: "username",
