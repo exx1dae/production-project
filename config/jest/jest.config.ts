@@ -30,6 +30,17 @@ export default {
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
     "^shared/(.*)$": "<rootDir>/src/shared/$1",
   },
+  reporters: [
+    "default",
+    [
+      "./node_modules/jest-html-reporter",
+      {
+        pageTitle: "Test Report",
+        outputPath: "<rootDir>/reports/unit/report.html",
+        inlineSource: true,
+      },
+    ],
+  ],
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
